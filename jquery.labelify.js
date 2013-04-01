@@ -51,10 +51,12 @@
 
     showLabel = function(el){
       $(el).data('value', el.value);
+      $(el).data('maxlength', $(el).attr('maxlength')).removeAttr('maxlength');
       el.value = $(el).data("label");
       $(el).addClass(settings.labeledClass).data('hasLabel', true);
     };
     hideLabel = function(el){
+      $(el).attr('maxlength', $(el).data('maxlength'));
       el.value = $(el).data('value');
       $(el).removeClass(settings.labeledClass).data('hasLabel', false);
     };
